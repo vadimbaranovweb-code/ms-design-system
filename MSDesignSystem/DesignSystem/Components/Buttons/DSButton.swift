@@ -43,6 +43,7 @@ struct DSButton: View {
     var style: ButtonStyle = .filled
     var size: ButtonSize = .medium
     var isDisabled: Bool = false
+    var isFullWidth: Bool = false
     var onlyIcon: Bool = false
     var leftIcon: String? = nil    // SF Symbol
     var rightIcon: String? = nil   // SF Symbol
@@ -83,6 +84,7 @@ struct DSButton: View {
                 }
             }
             .padding(buttonPadding)
+            .frame(maxWidth: isFullWidth ? .infinity : nil, alignment: .center)
             .background(isDisabled ? disabledBackground : background)
             .cornerRadius(cornerRadius)
             .overlay(
@@ -214,6 +216,7 @@ extension DSButton {
         style: ButtonStyle = .filled,
         size: ButtonSize = .medium,
         isDisabled: Bool = false,
+        isFullWidth: Bool = false,
         leftIcon: String? = nil,
         rightIcon: String? = nil,
         action: @escaping () -> Void
@@ -223,6 +226,7 @@ extension DSButton {
         self.style = style
         self.size = size
         self.isDisabled = isDisabled
+        self.isFullWidth = isFullWidth
         self.leftIcon = leftIcon
         self.rightIcon = rightIcon
         self.action = action
