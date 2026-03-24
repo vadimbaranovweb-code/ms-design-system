@@ -158,7 +158,8 @@ private struct ControlsSection: View {
                         DSButtonGroupItem(id: "center", title: "Center"),
                         DSButtonGroupItem(id: "right",  title: "Right"),
                     ],
-                    selectedId: $groupSel
+                    selectedId: groupSel,
+                    onSelect: { groupSel = $0 }
                 )
 
                 sectionHeader("DSSlider")
