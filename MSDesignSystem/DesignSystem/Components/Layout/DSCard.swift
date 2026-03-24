@@ -7,22 +7,25 @@
 
 import SwiftUI
 
+// MARK: - CardStyle
+
+enum DSCardStyle {
+    /// Белый фон + тень (дефолт)
+    case elevated
+    /// Белый фон + border, без тени
+    case outlined
+    /// Прозрачный фон, без border и тени (просто отступы)
+    case flat
+    /// Светло-серый фон (#F6F8FA), без тени
+    case surface
+}
+
+// typealias для обратной совместимости
+typealias CardStyle = DSCardStyle
+
 // MARK: - DSCard
 
 struct DSCard<Content: View>: View {
-
-    // MARK: - Style
-
-    enum CardStyle {
-        /// Белый фон + тень (дефолт)
-        case elevated
-        /// Белый фон + border, без тени
-        case outlined
-        /// Прозрачный фон, без border и тени (просто отступы)
-        case flat
-        /// Светло-серый фон (#F6F8FA), без тени
-        case surface
-    }
 
     // MARK: - Properties
 
@@ -115,7 +118,7 @@ struct DSCard<Content: View>: View {
 // MARK: - Shadow Modifier
 
 private struct CardShadowModifier: ViewModifier {
-    let style: DSCard<EmptyView>.CardStyle
+    let style: DSCardStyle
 
     func body(content: Content) -> some View {
         switch style {
