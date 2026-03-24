@@ -151,10 +151,10 @@ extension View {
 
         var body: some View {
             VStack(spacing: DS.Spacing.md) {
-                DSButton(title: "Открыть sheet", style: .primary) {
+                DSButton(title: "Открыть sheet", type: .primary, style: .filled) {
                     showBasic = true
                 }
-                DSButton(title: "С заголовком", style: .secondary) {
+                DSButton(title: "С заголовком", type: .primary, style: .stroke) {
                     showTitled = true
                 }
             }
